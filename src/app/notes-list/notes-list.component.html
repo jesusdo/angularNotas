@@ -1,0 +1,16 @@
+<!--<p>notes-list works!</p>-->
+<!--<div *ngFor="let itemh of item">{{itemh}}</div> -->
+<div class="container">
+    <nav>
+        <button routerLink="./new">Add New</button>
+    </nav>
+    <ul class="notes">
+        <li *ngIf="notes?.length == 0">No Data</li>
+        <li *ngFor="let note of notes">
+            <button [routerLink]="['/note', note.id]">
+                <span class="note-title">{{note.title}}</span>
+                <span class="note-text">{{note.text}}</span>
+            </button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <h2 *ngIf="!note || note.id === undefined">New Note</h2>
+    <h2 *ngIf="note && note.id !== undefined">Update Note</h2>
+    <!--<form [formGroup]="addNoteForm" (ngSubmit)="addNote()">-->
+    <form [formGroup]="addNoteForm" (ngSubmit)="addNotes()">
+        <div>
+            <label for="note-title">Title:
+                <input id="note-title" formControlName="title" [(ngModel)]="note.Title">
+            </label>
+        </div>
+        <div>
+            <label for="note-text">Text:
+                <input id="note-text" formControlName="text" [(ngModel)]="note.Text">
+            </label>
+        </div>
+        <button type="button" class="button" type="submit" [disabled]="!addNoteForm.valid">Submit</button>
+    </form>
+</div>
