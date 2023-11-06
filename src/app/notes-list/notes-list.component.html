@@ -7,7 +7,7 @@
     <ul class="notes">
         <li *ngIf="notes?.length == 0">No Data</li>
         <li *ngFor="let note of notes">
-            <button [routerLink]="['/note', note.id]">
+            <button [routerLink]="['/note', note.noteId]" class="buttonSpan">
                 <span class="note-title">{{note.title}}</span>
                 <span class="note-text">{{note.text}}</span>
             </button>

@@ -1,9 +1,18 @@
-<div    id="note-container" >
-    <span class="note-title">{{note?.title}}</span>
-    <span class="note-id">ID: {{note?.id}}</span>
-    <span class="note.text">{{note?.text}}</span>
+
+<div id="note-container">
+    <form [formGroup]="updateNote" (ngSubmit)="update()">
+        <input type="text" class="note-title" class="inputWrapper" value="{{note?.title}}" formControlName="title" >
+        <span class="note-id">ID: {{note?.noteId}}</span>
+        <textarea type="text" class="note-text" class="inputWrapper" rows="7"  value="{{note?.text}}" formControlName="text" ></textarea>
+        <button type="button" class="button"  (click)="edit()" ng-model="form">Edit</button>
+        <button type="button" class="button" type="submit" [disabled]="!updateNote.valid">Update</button>
+        <button type="button" class="removeButton" (click)="delete()" style="float:right">Delete</button>
+    </form>
 </div>
+
+
 <nav>
+    <!--<button (click)="update()">Update</button><br>-->
+    <!--<button class="removeButton" (click)="delete()">Remove</button>-->
     <button routerLink=''>Back to list</button>
-    <button class="removeButton" (click)="delete()">Remove</button>
 </nav>

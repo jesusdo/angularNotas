@@ -42,23 +42,11 @@ h2 {
   border: none;
   text-decoration: none;
 }
+button:disabled{
+  background-color: gray;
+}
 nav {
   text-align: center;
-}
-.note-title {
-  display: block;
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 11pt;
-  color: #000;
-}
-.note-text {
-  display: block;
-  text-align: left;
-  color: gray;
-  font-size: 10pt;
 }
 .note-id {
   display: block;
@@ -80,5 +68,18 @@ nav button {
 }
 
 .removeButton{
-    background-color: firebrick;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background-color:red;
+    color: #fff;
+    font-size: 10pt;
+    border: none;
+    text-decoration: none;
+}
+
+.inputWrapper{
+  border: 1px solid #999999;
+  margin: 5px;
+  padding: 5px;
 }

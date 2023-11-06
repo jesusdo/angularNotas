@@ -1,8 +1,6 @@
 <div class="container">
     <h2 *ngIf="!note || note.id === undefined">New Note</h2>
-    <h2 *ngIf="note && note.id !== undefined">Update Note</h2>
-    <!--<form [formGroup]="addNoteForm" (ngSubmit)="addNote()">-->
-    <form [formGroup]="addNoteForm" (ngSubmit)="addNotes()">
+    <form [formGroup]="addNoteForm" (ngSubmit)="addNote()">
         <div>
             <label for="note-title">Title:
                 <input id="note-title" formControlName="title" [(ngModel)]="note.Title">

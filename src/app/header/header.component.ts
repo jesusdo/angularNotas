@@ -12,14 +12,4 @@ import { NgIf } from '@angular/common';
 })
 export class HeaderComponent {
   title = 'My Notes';
-  myClasses = ['UpperCase', 'lights'];
-  login(){
-    alert('Welcome');
-  };
-  isRed = false;
-  change(){
-    this.isRed = !this.isRed;
-  }
-
-  item = ["Banana", "Lemon", "Avocado", "Wathermelon"];
 }

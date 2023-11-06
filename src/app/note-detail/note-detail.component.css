@@ -12,3 +12,15 @@
     margin-top: 15px;
     text-align: cen;
 }
+input{
+    width: 99%;
+    display: block;
+    text-align: left;
+    color:black;
+    font-size: 8pt;
+    font-weight: bold;
+}
+
+textarea{
+    width: 99%;
+}

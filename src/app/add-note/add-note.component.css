@@ -4,9 +4,6 @@ form div{
 form button{
     margin-top: 10px;
 }
-form button:disabled{
-    background-color: gray;
-}
 form label{
     font-weight: bold;
 }

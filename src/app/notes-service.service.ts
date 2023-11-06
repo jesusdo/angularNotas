@@ -10,16 +10,18 @@ export class NotesServiceService {
       .set('Access-Control-Allow-Origin', 'https://localhost:7243');
    }
   public get(){
-    console.log( this.http.get(this.url, {headers: this.headers}));
     return this.http.get(this.url, {headers: this.headers});
+  }
+  public getById(payload: {id: string;}){
+    return this.http.get(this.url + '/' + payload, {headers: this.headers});
   }
   public add(payload: any){
     return this.http.post(this.url, payload, {headers: this.headers});
   }
-  public remove(payload: { id: string; }){
-    return this.http.delete(this.url + '/' + payload.id, {headers: this.headers});
+  public remove(payload: { noteId: string; }){
+    return this.http.delete(this.url + '?id=' + payload.noteId, {headers: this.headers});
   }
-  public update(payload: { id: string; }){
-    return this.http.put(this.url + '/' + payload.id, payload, {headers: this.headers});
+  public update(payload: { noteId: string; }){
+    return this.http.put(this.url + '?id=' + payload.noteId, payload, {headers: this.headers});
   }
 }

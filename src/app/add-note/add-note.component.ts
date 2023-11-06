@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NOTES } from 'src/notes';
+import { NotesServiceService } from '../notes-service.service';
 
 @Component({
   selector: 'app-add-note',
@@ -20,40 +20,10 @@ export class AddNoteComponent {
 
   router = inject(Router);
 
-  /*
-  addNote(){
-    let title =  this.addNoteForm.value.title ?? '';
-    let text = this.addNoteForm.value.text ?? '';
-    
-
-    if(this.addNoteForm.valid){
-      let ids = NOTES.map((a) => a.id);
-      let maxId = 0;
-      if(ids.length > 0){
-        maxId = Math.max(...ids);
-      }
-      let newNote = {
-        id: maxId + 1,
-        title: title,
-        text: text,
-      };
-      NOTES.unshift(newNote);
-      this.addNoteForm.reset();
-    }
-
-    this.router.navigateByUrl('/');
-  }
-*/
-
-  @Output() noteCreated = new EventEmitter<any>();
   @Input() note: any;
 
-  constructor(){
+  constructor(private noteService: NotesServiceService){
     this.clearNotes();
-  }
-
-  ngOnInit(){
-
   }
 
   //create an empty note object
@@ -64,8 +34,13 @@ export class AddNoteComponent {
       Text: ''
     };
   };
-  public addNotes= () =>{
-    this.noteCreated.emit(this.note);
+
+  public addNote(){
+    this.note.Title = this.addNoteForm.get('title')?.value;
+    this.note.Text = this.addNoteForm.get('text')?.value;
+    this.noteService.add(this.note).subscribe();
+    this.addNoteForm.reset();
     this.clearNotes();
+    this.router.navigateByUrl('/');
   }
 }
